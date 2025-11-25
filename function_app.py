@@ -40,7 +40,12 @@ def obter_obras(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse(
             json.dumps(obras_lista),
             mimetype="application/json",
-            status_code=200
+            status_code=200,
+            headers={
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET",
+                "Access-Control-Allow-Headers": "*"
+            }
         )
 
     except Exception as e:
